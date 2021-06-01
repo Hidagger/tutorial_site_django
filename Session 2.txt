@@ -1,0 +1,62 @@
+Creating Templates:
+
+Create "templates"-folder in your blog app
+
+Create folder with the same name as the app inside your "templates"-folder
+
+Create .html documents for the pages you want to design
+
+Add the basic .html structure to your files and add an <h>-tag to the body
+so the page has something to display
+
+Go to blog.views and change your function to return
+render(request, 'blog/desired_template'), render always needs request as its 
+first argument
+
+For this to work we need to register our blog-app with our project. Go 
+to your blogs apps.py and copy your classname "BlogConfig"
+
+Go to your project-level settings.py and add your blog to its installed apps as
+'blog.apps.BlogConfig'
+
+Dummy Data:
+
+Crate some dummy data in blog.views
+later on this will be handled by our database instead
+
+Add context-dctionary referencing dummy-data to the home function and
+add it as the third argument to the render-function
+
+Using Code in Templates:
+
+Add code to loop over the the values of the post-key in out context-dictionary
+and create html dynamicly from there
+{% ... %} is used to express logic. Allways close your logic-blocks with {% end... %}.
+{{ variable.key }} is used to access data within our dictionary and use it as text
+inside our heading and paragraph tags.
+
+Add logic for default title in both templates. The title is your pages display-name
+inside your browser-tab. If we dont't specify a title, we want to bring up a default,
+else we display the specified title
+
+To test this add a dictionary with 'title' as key and 
+'About' as its value to the about-functions render
+
+Content Blocks in Template:
+
+Create 'base'-template
+
+Copy home.html's content to base.html
+
+Create content-block in base.html's body using {% block content %}
+{% block content %} will serve as marker and placeholder to be overidden by our 
+specific templates
+{% endblock %} is used to mark the end of your block like </...> in html
+
+Remove all repeated code from home.html and about.html and
+instead extend base-template at the top of your templates
+
+Wrap remaining unique content in block-reference using the same format as in base.html
+{% endblock content %} can be used to specify which block to end rather than just using
+{% endblock %}. This can help readability when yourpage gets more complex and you have
+multiple blocks.

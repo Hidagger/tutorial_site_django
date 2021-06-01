@@ -1,18 +1,19 @@
 In your command console cd to the folder you want to start your project in.
 
 -> django-admin startproject your_project_name
-You should now have a folder with one additional folder named like your project and some files including "mange.py".
+You should now have a folder with one additional folder named like your project and some files including "manage.py".
 
 Cd into the project folder, where the manage.py file is located.
 -> python manage.py startapp my_app_name
 This creates a new "app" inside the existing structure. Apps are how you structure different segments of your page. If you want for example a blog for your mainpage and include a shop or a forum etc. you would create a blog-app and a shop-app this way and have each handle its respective logic.
 
 START THE SERVER using "python manage.py runserver" in your console
+# add localhost address
 
 Now the work inside our actual page-infrastructure starts:
-1. create a view function for "home" in our .../app/views.py.
+1. create a view function for "home" in our .../app/views.py by importing and returning a simple HttpResponse.
 
-2. create urls.py in your app-folder, import our views, copy and manipulate urlpatterns from projectlevel urls.py.
+2. create urls.py in your app-folder, import your views, copy and manipulate urlpatterns from projectlevel urls.py.
 This will handle connections to our blog-page and its subpages.
 
 3. go to projectlevel urls.py, import include in addition to path, add reference to blog.urls using include.
