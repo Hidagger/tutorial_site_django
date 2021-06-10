@@ -10,7 +10,7 @@ Add the basic .html structure to your files and add an <h>-tag to the body
 so the page has something to display
 
 Go to blog.views and change your function to return
-render(request, 'blog/desired_template'), render always needs request as its 
+render(request, 'blog/desired_template.html'), render always needs request as its 
 first argument
 
 For this to work we need to register our blog-app with our project. Go 
@@ -24,7 +24,7 @@ Dummy Data:
 Crate some dummy data in blog.views
 later on this will be handled by our database instead
 
-Add context-dctionary referencing dummy-data to the home function and
+Add context-dictionary referencing dummy-data to the home function and
 add it as the third argument to the render-function
 
 Using Code in Templates:
@@ -54,7 +54,7 @@ specific templates
 {% endblock %} is used to mark the end of your block like </...> in html
 
 Remove all repeated code from home.html and about.html and
-instead extend base-template at the top of your templates
+instead extend base-template at the top of your templates using {% extends "blog/base.html" %}
 
 Wrap remaining unique content in block-reference using the same format as in base.html
 {% endblock content %} can be used to specify which block to end rather than just using

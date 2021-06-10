@@ -1,0 +1,45 @@
+Manual database queries using the console:
+
+-> python manage.py shell
+Runs he python shell in your terminal
+
+-> from blog.models import Post
+-> from django.contrib.auth.models import User
+
+-> User.objects.all()
+-> User.objects.first()
+-> User.objects.filter(username="your-user").first()
+Thanks to Django acting as the middleman between you and your database you are able 
+to query the database using python object notation.
+
+-> user = User.objects.filter(username="your-user").first()
+You can create a reference to specific subsets of your data. This saves the with the
+specified name to your variable.
+
+-> user.id
+From there you are able to query other properties of your user. If not otherwise specified, our user's id is the 
+default PRIMARY KEY.
+
+Creating Posts using the shell:
+
+-> post.objects.all()
+This should return an empty query-set.
+
+-> post_1 = Post('Blog 1', content='First Post Content', author=user)
+post.objects is still empty at this point. You have created a Post-object and stored it in memory
+but haven't pushed it to the database.
+
+-> post_1.save
+This command saves the content of your post_1-variable to the database.
+
+To make printing your Post-object more readable you need to add a __str__ method to your class.
+
+-> exit()
+
+-> python manage.py shell
+
+Make imports again.
+
+-> post.objects.all()
+
+Now set your user-variable again and create some more posts like above.

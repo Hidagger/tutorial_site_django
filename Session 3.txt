@@ -1,0 +1,34 @@
+Migrating and creating the Admin:
+
+-> python manage.py migrate
+Running this for the first time initializes the backend-database, when you make changes
+or create new elements for the database they also need be migrated before they take effect.
+Migrations translate your python code into SQL and run it for you, so you don't have to 
+deal with SQL queries directly.
+
+-> python manage.py createsuperuser
+This command allows you to create a superuser/admin. You can now log in via localhost.../admin.
+
+Log in and use the admin interface to create 2 additional users.
+
+
+Creating Models:
+
+Create a Post class, inheriting from models.Model, in your blog-apps models.py
+Your class properties will hold your coresponding database-fields.
+Example: title = models.CharField(max_length=100)
+
+For your date_posted-property import timezone from django.utils.
+Set date_posted equal to a DateTimeField with an argument of default=timezone.now
+
+Updating your databse:
+
+Since your Post-model corresponds to a new table in your database, you need to run another
+migration to create the table.
+
+-> python manage.py makemigration
+This command puts all pending changes to the database inside a staging area.
+
+->python manage.py migrate
+This command executes all staged migrations.
+

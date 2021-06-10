@@ -5,7 +5,9 @@ You should now have a folder with one additional folder named like your project 
 
 Cd into the project folder, where the manage.py file is located.
 -> python manage.py startapp my_app_name
-This creates a new "app" inside the existing structure. Apps are how you structure different segments of your page. If you want for example a blog for your mainpage and include a shop or a forum etc. you would create a blog-app and a shop-app this way and have each handle its respective logic.
+This creates a new "app" inside the existing structure. Apps are how you structure different segments of your page. 
+If you want for example a blog for your mainpage and include a shop or a forum etc. you would create a blog-app and a shop-app this way 
+and have each handle its respective logic.
 
 START THE SERVER using "python manage.py runserver" in your console
 # add localhost address
